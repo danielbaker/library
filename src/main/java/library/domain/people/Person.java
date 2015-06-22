@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import library.domain.books.Book;
 
 @Entity(name="People")
@@ -27,6 +29,7 @@ public class Person {
 	@Column
 	private String phoneNumber;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="rentedBy", fetch=FetchType.LAZY)
 	private List<Book> onLoan;
 
